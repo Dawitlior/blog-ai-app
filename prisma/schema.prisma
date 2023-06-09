@@ -12,10 +12,10 @@ model Post {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  title String
-  category String
-  content String @db.Text
-  author String
-  image String
-  snippet String
+  title     String
+  category  String
+  content   String   @db.VarChar(255)
+  author    String
+  image     String
+  snippet   String 
 }
