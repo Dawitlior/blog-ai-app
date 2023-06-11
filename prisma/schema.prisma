@@ -14,8 +14,8 @@ model Post {
   updatedAt DateTime @updatedAt
   title     String
   category  String
-  content   String   @db.VarChar(255)
+  content   String   @db.Text
   author    String
   image     String
-  snippet   String 
+  snippet   String   @db.Text
 }
