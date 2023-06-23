@@ -1,4 +1,4 @@
-# blog-ai-application
+# Blog-Ai-Application
 
 Automatic Blog Post Generation with ChatGPT
 
