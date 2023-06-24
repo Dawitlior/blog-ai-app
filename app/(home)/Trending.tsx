@@ -2,6 +2,7 @@ import { Post } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Loading from "../post/loading";
 
 type TrendingCardProps = {
   className?: string;
