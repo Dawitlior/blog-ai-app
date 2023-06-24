@@ -215,7 +215,7 @@ const posts = [
     },
 ];
 
-async function main() {
+async function seedingData() {
     console.log(`Start seeding...`);
     for (const post of posts) {
         console.log(post);
@@ -224,7 +224,7 @@ async function main() {
     console.log(`Seeding finished.`);
 }
 
-main()
+seedingData()
     .then(async () => {
         await prisma.$disconnect();
     })
