@@ -5,8 +5,9 @@ import { XMarkIcon, PencilSquareIcon } from "@heroicons/react/24/solid";
 import Loading from "@/app/loading";
 import Image from "next/image";
 import SocialLinks from "@/app/(shared)/SocialLinks";
-import { useEditor, EditorContent, } from "@tiptap/react";
+import { useEditor, EditorContent, Editor, } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import EditorMenuBar from "./editorMenuBar";
 type Props = {
   post: FormattedPost | null;
 };
@@ -14,20 +15,31 @@ type Props = {
 const Content = ({ post }: Props) => {
   if (!post) return <Loading />;
 
-  const [isEditable, setIsEditable] = useState<Boolean>(false);
+  const [isEditable, setIsEditable] = useState<boolean>(false);
   const [title, setTitle] = useState<string>(post.title);
   const [titleError, setTitleError] = useState<string>("");
   const [content, setContent] = useState<string>(post.content);
   const [contentError, setContentError] = useState<string>("");
 
+  const handleIsEditable = (bool: boolean) => {
+    setIsEditable(bool);
+    editor?.setEditable(bool);
+  }
+
+  const handleOnChangeContent = ({editor}: any) => {
+    if(!(editor as Editor).isEmpty) setContentError("");
+    setContent((editor as Editor).getHTML())
+  }
+
   const editor = useEditor({
-    extensions: [
-      StarterKit,
-    ],
-    content: '<p>Hello World!</p>',
+    extensions: [StarterKit,],
+    onUpdate: handleOnChangeContent,
+    content: content ,
+    editable: isEditable
   })
 
   const handleSubmit = () => { };
+
   return (
     <div className="prose w-full max-w-full mb-10">
       {/** BREADCRUMBS */}
@@ -41,12 +53,12 @@ const Content = ({ post }: Props) => {
         <div className="mt-4">
           {isEditable ? (
             <div className="flex justify-between gap3">
-              <button onClick={() => console.log("cancel edit")}>
+              <button onClick={() => handleIsEditable(!isEditable)}>
                 <XMarkIcon className="h-6 w-6 text-accent-red" />
               </button>
             </div>
           ) : (
-            <button onClick={() => console.log("cancel edit")}>
+              <button onClick={() => handleIsEditable(!isEditable)}>
               <PencilSquareIcon className="h6 w-6 text-accent-red" />
             </button>
           )}
@@ -91,7 +103,10 @@ const Content = ({ post }: Props) => {
 
             <div className={isEditable ? "border-2 rounded-md bg-wh-50 p-3" : "w-full max-w-full "}>
             {isEditable && (
-              <></>
+              <>
+              <EditorMenuBar editor={editor} />
+              <hr className="border-1 mt-2 mb-5" />
+              </>
             )}
             <EditorContent editor={editor} />
             </div>
