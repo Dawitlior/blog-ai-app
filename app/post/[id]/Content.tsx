@@ -23,7 +23,7 @@ const Content = ({ post }: Props) => {
 
   const [content, setContent] = useState<string>(post.content);
   const [contentError, setContentError] = useState<string>("");
-  const [tempContent, setTempContent] = useState<string>(title);
+  const [tempContent, setTempContent] = useState<string>(content);
   const handleIsEditable = (bool: boolean) => {
     setIsEditable(bool);
     editor?.setEditable(bool);
