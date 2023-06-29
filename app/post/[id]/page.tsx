@@ -27,7 +27,7 @@ const getPost = async (id: string) => {
         updatedAt: post?.updatedAt?.toISOString(),
     };
 
-    {/** IF ITS NOT PRISMA(an Api call) IT WILL BE LIKE THIS;
+    {/** IF ITS NOT PRISMA(an Api call)
     const response = await fetch(
         url,
         {
