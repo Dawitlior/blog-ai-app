@@ -16,14 +16,22 @@ const Content = ({ post }: Props) => {
   if (!post) return <Loading />;
 
   const [isEditable, setIsEditable] = useState<boolean>(false);
+
   const [title, setTitle] = useState<string>(post.title);
   const [titleError, setTitleError] = useState<string>("");
+  const [tempTitle, setTempTitle] = useState<string>(title);
+
   const [content, setContent] = useState<string>(post.content);
   const [contentError, setContentError] = useState<string>("");
-
+  const [tempContent, setTempContent] = useState<string>(title);
   const handleIsEditable = (bool: boolean) => {
     setIsEditable(bool);
     editor?.setEditable(bool);
+  }
+
+  const handleOnChangeTitle = (e:React.ChangeEvent<HTMLTextAreaElement>) => {
+    if(title) setTitleError("")
+    setTitle(e.target.value)
   }
 
   const handleOnChangeContent = ({editor}: any) => {
@@ -73,9 +81,7 @@ const Content = ({ post }: Props) => {
               <textarea
                 className="border-2 rounded-md bg-wh-50 p-3 w-full"
                 placeholder="Title"
-                onChange={(e) => {
-                  console.log("change title", e.target.value);
-                }}
+                onChange={handleOnChangeTitle}
                 value={title}
               />
             </div>
