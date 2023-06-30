@@ -8,6 +8,7 @@ import { useEditor, EditorContent, Editor, } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import EditorMenuBar from "./editorMenuBar";
 import CategoryAndEdit from "./CategoryAndEdit";
+import Article from "./Article";
 type Props = {
   post: FormattedPost | null;
 };
@@ -49,7 +50,13 @@ const Content = ({ post }: Props) => {
     extensions: [StarterKit,],
     onUpdate: handleOnChangeContent,
     content: content ,
-    editable: isEditable
+    editable: isEditable,
+    editorProps: {
+      attributes: {
+        class: 
+        "prose prose-sm sx:prose-2xl leading-8 focus: outline-none w-full max-w-full"
+      },
+    },
   })
 
   const handleSubmit = () => { };
@@ -106,16 +113,14 @@ const Content = ({ post }: Props) => {
             style={{ objectFit: "cover" }}
           />
         </div>
-
-            <div className={isEditable ? "border-2 rounded-md bg-wh-50 p-3" : "w-full max-w-full "}>
-            {isEditable && (
-              <>
-              <EditorMenuBar editor={editor} />
-              <hr className="border-1 mt-2 mb-5" />
-              </>
-            )}
-            <EditorContent editor={editor} />
-            </div>
+            {/* ARTICLE */}
+          <Article  
+          contentError={contentError}
+          editor={editor}
+          isEditable={isEditable}
+          setContent={setContent}
+          title={title}
+          />
 
         {/* SUBMIT BUTTON */}
         {isEditable && (
