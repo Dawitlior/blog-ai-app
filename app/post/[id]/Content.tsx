@@ -1,13 +1,13 @@
 "use client";
 import { FormattedPost } from "@/app/types";
 import React, { useState } from "react";
-import { XMarkIcon, PencilSquareIcon } from "@heroicons/react/24/solid";
 import Loading from "@/app/loading";
 import Image from "next/image";
 import SocialLinks from "@/app/(shared)/SocialLinks";
 import { useEditor, EditorContent, Editor, } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import EditorMenuBar from "./editorMenuBar";
+import CategoryAndEdit from "./CategoryAndEdit";
 type Props = {
   post: FormattedPost | null;
 };
@@ -24,6 +24,12 @@ const Content = ({ post }: Props) => {
   const [content, setContent] = useState<string>(post.content);
   const [contentError, setContentError] = useState<string>("");
   const [tempContent, setTempContent] = useState<string>(content);
+
+  const date = new Date(post?.createdAt);
+  const options = { year: "numeric", month: "long", day: "numeric" } as any;
+  const formattedDate = date.toLocaleDateString("en-US", options)
+
+   
   const handleIsEditable = (bool: boolean) => {
     setIsEditable(bool);
     editor?.setEditable(bool);
@@ -53,25 +59,19 @@ const Content = ({ post }: Props) => {
       {/** BREADCRUMBS */}
       <h5 className="text-wh-300">{`home > ${post.category} > ${post.title}`}</h5>
 
-      {/**category */}
-      <div className="flex justify-between items-center">
-        <h4 className="bg-accent-orange py-2 px-5 tex-wh-900 text-sm font-bold">
-          {post.category}
-        </h4>
-        <div className="mt-4">
-          {isEditable ? (
-            <div className="flex justify-between gap3">
-              <button onClick={() => handleIsEditable(!isEditable)}>
-                <XMarkIcon className="h-6 w-6 text-accent-red" />
-              </button>
-            </div>
-          ) : (
-              <button onClick={() => handleIsEditable(!isEditable)}>
-              <PencilSquareIcon className="h6 w-6 text-accent-red" />
-            </button>
-          )}
-        </div>
-      </div>
+      {/**category and edit */}
+      <CategoryAndEdit
+        isEditable={isEditable}
+        handleIsEditable={handleIsEditable}
+        title={title}
+        setTitle={setTitle}
+        tempTitle={tempTitle}
+        setTempTitle={setTempTitle}
+        tempContent={tempContent}
+        setTempContent={setTempContent}
+        editor={editor}
+        post={post}
+      />
 
       <form onSubmit={handleSubmit}>
         {/* HEADER */}
@@ -90,7 +90,7 @@ const Content = ({ post }: Props) => {
           )}
           <div className="flex gap-3 ">
             <h5 className="font-semibold text-xs">By {post.author}</h5>
-            <h6 className="text-wh-300 text-xs">{post.createdAt}</h6>
+            <h6 className="text-wh-300 text-xs">{formattedDate}</h6>
           </div>
         </>
         {/* IMAGE */}
