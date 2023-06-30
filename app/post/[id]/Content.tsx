@@ -30,36 +30,65 @@ const Content = ({ post }: Props) => {
   const options = { year: "numeric", month: "long", day: "numeric" } as any;
   const formattedDate = date.toLocaleDateString("en-US", options)
 
-   
+
   const handleIsEditable = (bool: boolean) => {
     setIsEditable(bool);
     editor?.setEditable(bool);
   }
 
-  const handleOnChangeTitle = (e:React.ChangeEvent<HTMLTextAreaElement>) => {
-    if(title) setTitleError("")
+  const handleOnChangeTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (title) setTitleError("")
     setTitle(e.target.value)
   }
 
-  const handleOnChangeContent = ({editor}: any) => {
-    if(!(editor as Editor).isEmpty) setContentError("");
+  const handleOnChangeContent = ({ editor }: any) => {
+    if (!(editor as Editor).isEmpty) setContentError("");
     setContent((editor as Editor).getHTML())
   }
 
   const editor = useEditor({
     extensions: [StarterKit,],
     onUpdate: handleOnChangeContent,
-    content: content ,
+    content: content,
     editable: isEditable,
     editorProps: {
       attributes: {
-        class: 
-        "prose prose-sm sx:prose-2xl leading-8 focus: outline-none w-full max-w-full"
+        class:
+          "prose prose-sm sx:prose-2xl leading-8 focus: outline-none w-full max-w-full"
       },
     },
   })
 
-  const handleSubmit = () => { };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    //validation checks
+    if (title === "") setTitleError("This field is required.");
+    if (editor?.isEmpty) setContentError("This field is required");
+    if (title === "" || editor?.isEmpty) return;
+
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/api/post${post?.id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          title: title,
+          content: content
+        })
+      }
+    );
+    const data = await response.json();
+    handleIsEditable(false);
+    setTempTitle("");
+    setTempContent("");
+
+    setTitle(data.title);
+    setContent(data.content);
+    editor?.commands.setContent(data.content);
+  };
 
   return (
     <div className="prose w-full max-w-full mb-10">
@@ -113,14 +142,14 @@ const Content = ({ post }: Props) => {
             style={{ objectFit: "cover" }}
           />
         </div>
-            {/* ARTICLE */}
-          <Article  
+        {/* ARTICLE */}
+        <Article
           contentError={contentError}
           editor={editor}
           isEditable={isEditable}
           setContent={setContent}
           title={title}
-          />
+        />
 
         {/* SUBMIT BUTTON */}
         {isEditable && (
@@ -134,7 +163,7 @@ const Content = ({ post }: Props) => {
 
       {/* SOCIAL LINKS */}
       <div className="hidden md:block mt-10 w-1/3">
-        <SocialLinks isDark/>
+        <SocialLinks isDark />
       </div>
     </div>
   );
