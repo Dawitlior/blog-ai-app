@@ -68,7 +68,7 @@ const Content = ({ post }: Props) => {
     if (title === "" || editor?.isEmpty) return;
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/api/post${post?.id}`,
+      `${process.env.NEXT_PUBLIC_URL}/api/post/${post?.id}`,
       {
         method: "PATCH",
         headers: {
