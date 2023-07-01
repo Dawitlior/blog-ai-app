@@ -11,8 +11,8 @@ export async function POST(request: Request, response: any) {
   try {
     const { title, role } = await request.json();
 
-    const aiResponse: AxiosResponse<CreateChatCompletionResponse, any> =
-      await openai.createChatCompletion({
+    const aiResponse: AxiosResponse<CreateChatCompletionResponse, any>
+      = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [
           {
@@ -21,9 +21,8 @@ export async function POST(request: Request, response: any) {
           },
           {
             role: "system",
-            content: `${
-              role || "I am a helpful assistant"
-            }. Write with html tags.`,
+            content: `${role || "I am a helpful assistant"
+              }. Write with html tags.`,
           },
         ],
       });
