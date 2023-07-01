@@ -1,6 +1,8 @@
 import React from 'react'
 import SocialLinks from './SocialLinks'
 import Subscribe from './Subscribe'
+import Image from 'next/image'
+import Ad2 from "/public/assets/ad-2.png";
 
 type Props = {}
 
@@ -14,17 +16,20 @@ const Sidebar = (props: Props) => {
       <SocialLinks isDark />
       </div>
       <Subscribe />
-      <div className='bg-wh-900 my-8'>advert image</div>
+      <Image
+        className="hidden md:block my-8 w-full"
+        alt="advert-2"
+        placeholder="blur"
+        src={Ad2}
+        width={500}
+        height={1000}
+      />
       <h4 className='bg-wh-900 py-3 px-5 text-wh-50 text-xs text-center font-bold'>
         About the Blog
       </h4>
-      <div className='bg-wh-900 my-8'>profile image</div>
       <h4 className='py-3 px-5 text-wh-500 text-center font-bold'>
-        Lior Dawit
+       From Lior Dawit
       </h4>
-      <p className='text-wh-500 text-center text-sm'>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus, sint dolore? Provident facere recusandae animi.
-      </p>
     </section>
 
   )
