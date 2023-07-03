@@ -25,6 +25,11 @@ This project is a complete full-stack application built with Next.js 13.3 that a
 1. Set up the environment variables required for the project.
 2. Configure the Prisma connection details in the `.env` file.
 
+### Enjoy 
+- https://blog-ai-inja5xr3y-dawitlior.vercel.app/
+
+- Ai response in progress
+
 ### Running the Application
 
 1. Run the development server: `npm run dev`
@@ -81,8 +86,10 @@ Contributions are welcome! If you would like to contribute to this project, plea
 
 If you have any questions, suggestions, or issues, please feel free to contact with me at Dawitlior777@gmail.com
 
+## Enjoy
+
+- https://blog-ai-inja5xr3y-dawitlior.vercel.app/
 
 
-
-
--  in progress
+##
+- Ai response in Progress
