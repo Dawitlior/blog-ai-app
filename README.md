@@ -6,20 +6,6 @@ Automatic Blog Post Generation with ChatGPT
 
 This project is a complete full-stack application built with Next.js 13.3 that automatically generates blog post content using ChatGPT. It utilizes the latest Next.js version with the app directory structure, Prisma as the ORM, TipTap for text editing, and TypeScript as the programming language. The application is deployed for free on Vercel.
 
-## Features
-
-- Automatic generation of blog post content using ChatGPT
-- User-friendly text editing with TipTap
-- Seamless integration with Prisma as the ORM
-- Fully typed with TypeScript for enhanced reliability
-- Deployed for free on Vercel
-
-## Technologies Used
-
-- Next.js 13.3
-- Prisma (ORM)
-- TipTap (Text Editing)
-- TypeScript
 
 ## Getting Started
 
@@ -58,6 +44,22 @@ This project is a complete full-stack application built with Next.js 13.3 that a
 
 The application is deployed for free on Vercel. Any changes pushed to the main branch will trigger an automatic deployment.
 
+## Features
+
+- Automatic generation of blog post content using ChatGPT
+- User-friendly text editing with TipTap
+- Seamless integration with Prisma as the ORM
+- Fully typed with TypeScript for enhanced reliability
+- Deployed for free on Vercel
+
+## Technologies Used
+
+- Next.js 13.3
+- Prisma (ORM)
+- TipTap (Text Editing)
+- TypeScript
+
+
 ## Contributing
 
 Contributions are welcome! If you would like to contribute to this project, please follow these steps:
@@ -67,6 +69,12 @@ Contributions are welcome! If you would like to contribute to this project, plea
 3. Make your changes and commit them: `git commit -am 'Add some feature'`
 4. Push the branch: `git push origin feature/your-feature-name`
 5. Submit a pull request
+
+![2023-07-01 (3)](https://github.com/Dawitlior/blog-ai-app/assets/102303153/f0ae3192-398b-4037-906a-49dad62c1d92)
+![2023-07-01 (4)](https://github.com/Dawitlior/blog-ai-app/assets/102303153/e2e7d1a0-ba92-4710-a1ee-00651397cb94)
+![2023-07-01 (5)](https://github.com/Dawitlior/blog-ai-app/assets/102303153/8115df33-2776-4829-a7fc-cf1cee581d3f)
+![2023-07-01 (6)](https://github.com/Dawitlior/blog-ai-app/assets/102303153/ae1b1d53-17eb-418c-86d2-6ce646dacc95)
+
 
 
 ## Contact
