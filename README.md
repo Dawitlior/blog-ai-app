@@ -25,6 +25,11 @@ This project is a complete full-stack application built with Next.js 13.3 that a
 1. Set up the environment variables required for the project.
 2. Configure the Prisma connection details in the `.env` file.
 
+### Enjoy 
+- https://blog-ai-inja5xr3y-dawitlior.vercel.app/
+
+- Ai response in progress
+
 ### Running the Application
 
 1. Run the development server: `npm run dev`
@@ -70,10 +75,7 @@ Contributions are welcome! If you would like to contribute to this project, plea
 4. Push the branch: `git push origin feature/your-feature-name`
 5. Submit a pull request
 
-![2023-07-01 (3)](https://github.com/Dawitlior/blog-ai-app/assets/102303153/f0ae3192-398b-4037-906a-49dad62c1d92)
 ![2023-07-01 (4)](https://github.com/Dawitlior/blog-ai-app/assets/102303153/e2e7d1a0-ba92-4710-a1ee-00651397cb94)
-![2023-07-01 (5)](https://github.com/Dawitlior/blog-ai-app/assets/102303153/8115df33-2776-4829-a7fc-cf1cee581d3f)
-![2023-07-01 (6)](https://github.com/Dawitlior/blog-ai-app/assets/102303153/ae1b1d53-17eb-418c-86d2-6ce646dacc95)
 
 
 
@@ -81,8 +83,10 @@ Contributions are welcome! If you would like to contribute to this project, plea
 
 If you have any questions, suggestions, or issues, please feel free to contact with me at Dawitlior777@gmail.com
 
+## Enjoy
+
+- https://blog-ai-inja5xr3y-dawitlior.vercel.app/
 
 
-
-
--  in progress
+##
+- Ai response in Progress
