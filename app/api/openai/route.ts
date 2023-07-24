@@ -11,12 +11,13 @@ export async function POST(request: Request, response: any) {
   try {
     const { title, role } = await request.json();
 
-    const aiResponse: AxiosResponse<CreateChatCompletionResponse, any>
-      = await openai.createChatCompletion({
+    const aiResponse: AxiosResponse<CreateChatCompletionResponse, any> =
+      await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [
           {
             role: "user",
+            // content: `Create small blog post with html tags based on this title: ${title}`,
             content: `Create 3 line blog post with html tags based on this title: ${title}`,
           },
           {
@@ -27,7 +28,7 @@ export async function POST(request: Request, response: any) {
         ],
       });
 
-     response.revalidate("/api/posts")
+    // response.revalidate("/api/posts")
     return NextResponse.json(
       {
         content: aiResponse.data.choices[0].message?.content,
