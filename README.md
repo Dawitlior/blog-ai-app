@@ -4,7 +4,7 @@ Automatic Blog Post Generation with ChatGPT
 
 ## Description
 
-This project is a complete full-stack application built with Next.js 13.3 that automatically generates blog post content using ChatGPT. It utilizes the latest Next.js version with the app directory structure, Prisma as the ORM, TipTap for text editing, and TypeScript as the programming language. The application is deployed for free on Vercel.
+This project is a complete full-stack application built with Next.js 13.3 that automatically generates blog post content using ChatGPT. It utilizes the latest Next.js version with the app directory structure, Prisma as the ORM, TipTap for text editing, and TypeScript as the programming language. The application is deployed on Vercel.
 
 
 ## Getting Started
