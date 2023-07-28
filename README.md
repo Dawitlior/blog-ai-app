@@ -81,7 +81,7 @@ If you have any questions, suggestions, or issues, please feel free to contact w
 
 ## Enjoy
 
-- https://blog-ai-inja5xr3y-dawitlior.vercel.app/
+- https://dawit-blog-ai.vercel.app/
 
 
 ##
