@@ -16,7 +16,6 @@ const Travel = ({ travelPosts }: Props) => {
         </h4>
         <p className="font-bold text-2xl">new travel experiences</p>
       </div>
-      {/* CARD ROW */}
       <div className="sm:flex justify-between gap-8">
         <Card
           className=" basis-1/3 mt-5 sm:mt-0"
