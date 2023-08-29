@@ -58,20 +58,6 @@ const Trending = ({ trendingPosts }: Props) => {
           eligendi mollitia?
         </p>
       </div>
-
-      {/* flex option */}
-      {/* <div className="flex justify-between gap-3 my-3">
-        <div className="basis-1/2 bg-wh-500 h-96"></div>
-        <div className="flex flex-col basis-1/2 gap-3 h-96">
-          <div className="basis-1/2 bg-wh-500"></div>
-          <div className="flex basis-1/2 gap-3">
-            <div className="basis-1/2 bg-wh-500"></div>
-            <div className="basis-1/2 bg-wh-500"></div>
-          </div>
-        </div>
-      </div> */}
-
-      {/* grid option */}
       <div className="sm:grid gap-5 grid-cols-4 grid-rows-2 sm:h-[600px] my-3">
         <TrendingCard className="col-span-2 row-span-2 bg-wh-500" post={trendingPosts[0]} />
         <TrendingCard className="col-span-2 row-span-1 bg-wh-500" post={trendingPosts[1]} />
