@@ -7,18 +7,18 @@ import Sidebar from "app/(shared)/Sidebar";
 import { prisma } from "app/api/client";
 import { Post } from "@prisma/client";
 
-const getPosts = async () => { 
+const getPosts = async () => {
   const posts = await prisma.post.findMany();
 
   const formattedPosts = await Promise.all(
     posts.map(async (post: Post) => {
-      const imageModule = require(`../public${post.image}`)
+      const imageModule = require(`../public${post.image}`);
       return {
         ...post,
-        image: imageModule.default
-      }
+        image: imageModule.default,
+      };
     })
-  )
+  );
 
   return formattedPosts;
 };
